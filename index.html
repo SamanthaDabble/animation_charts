@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compare Animated Films</title>
+        <!--All Meta Tags-->
+        <meta charset="UTF-8">
+        <meta name="description" content="Lab 1">
+        <meta name="keywords" content="Compare Japanese Animated Films">
+        <meta name="author" content="Samantha Tait">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                 
+        <!--Linking to External Stylesheet-->
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        
+        <!--Internal Styling-->
+        <style>
+            #heading {
+                font-family: "Barlow Condensed", Georgia, Times, serif;
+            }
+            #context {
+                padding: 15px;
+                padding-top: 30px;
+            }
+        </style>
+        <script src="animationConvert.js"></script>
+        <script src="logic.js"></script>
+        <script>
+            decade();
+            studioFilms();
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div id="wrapper">
+            <header id="headstruc">
+                <h1 id="heading">Comparison of Japanese Animated Films</h1>
+            </header>
+            
+            <main>
+                <div id="demo"></div>
+                <div id="mainstruc">
+                    <h3>Movies By Studio</h3>
+                    <canvas id="myChart1" width="300" height="300"></canvas>
+
+                    <h3>Movies By Decade</h3>
+                    <canvas id="myChart2" width="300" height="300"></canvas>
+                    <p id="context">
+                        This chart is intended to compare popular and critically acclaimed animated films.
+                        The most well known animation studio from Japan is "Studio Ghibli". Many of their 
+                        films have worldwide influence.
+                        <br> 
+                        <br>
+                        Something to note is that not all of the films from this
+                        list are for children. While Studio Ghibli produces family friendly content, other studios
+                        may have different intended audiences. Please keep that in mind and look up more information 
+                        on a movie before showing it to children.
+                        <br>
+                        <br>
+                        The full excel sheet (.csv file) can be downloaded <a href="/animation.csv" download>HERE</a>
+                    </p>
+                    <div id="sources">
+                        <h3>Sources:</h3>
+                        <ul>
+                            <li><a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a></li>
+                            <li><a href="http://www.boxofficemojo.com/">Box Office Mojo</a></li>
+                            <li><a href="http://www.imdb.com/">IMDB</a></li>
+                            <li><a href="http://www.onlineghibli.com/tavern/print.php?threadid=428&boardid=4&styleid=1&sid=5hl43e4ohjd12ffb907t9emlc0&page=1">Online Ghibli</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+            </footer>
+            <!-- Chart.js script for pie chart -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+            <script>
+                    // For a pie chart
+                    var ctx = document.getElementById("myChart1").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: studios,
+                        datasets: [{
+                          backgroundColor: [
+                            "#2ecc71",
+                            "#3498db",
+                            "#95a5a6",
+                            "#9b59b6",
+                            "#f1c40f",
+                            "#e74c3c",
+                            "#34495e",
+                            "#8BA6A9",
+                            "#75704E"
+                          ],
+                          data: studioArray,
+                          
+                        }]
+                    
+                      }
+                    });
+                </script>          
+                        <script>
+                    // For a pie chart
+                    var ctx = document.getElementById("myChart1").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: studios,
+                        datasets: [{
+                          backgroundColor: [
+                            "#2ecc71",
+                            "#3498db",
+                            "#95a5a6",
+                            "#9b59b6",
+                            "#f1c40f",
+                            "#e74c3c",
+                            "#34495e",
+                            "#8BA6A9",
+                            "#75704E"
+                          ],
+                          data: studioArray,
+                          
+                        }]
+                    
+                      }
+                    });
+                </script>   
+            <script>
+                    // For a pie chart
+                    var ctx = document.getElementById("myChart2").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                        labels: ["1980s", "1990s", "2000s", "2010s"],
+                        datasets: [{
+                            backgroundColor: [
+                                "#2ecc71",
+                                "#3498db",
+                                "#95a5a6",
+                                "#f1c40f"
+                            ],
+                            data: decadeArray,      
+                        }]                
+                    }
+                });
+            </script>   
+        </div>
+    </body>
+</html>
